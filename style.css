@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#grid{
+    display: grid;
+    
+    gap: 1px;
+    background-color: black;
+}
+
+.cell{
+    width: 12px;
+    height: 12px;
+    background-color: white;
+}
+
+
+.cellFood{
+    background-color: red;
+}
+
+#features{
+    position: relative;
+    width: 100vw;
+}
+
+#buttons{
+    height: 400px;
+    width: 100vw;
+}
+
+#traitStats{
+    width: 100vw;
+    height: 300px;
+}
+
+[id="1"]{
+    font-size: 20px;
+    color: blue;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="2"]{
+    font-size: 20px;
+    color: orange;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="3"]{
+    font-size: 20px;
+    color: yellowgreen;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="4"]{
+    font-size: 20px;
+    color: violet;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="5"]{
+    font-size: 20px;
+    color: green;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="6"]{
+    font-size: 20px;
+    color: Chartreuse;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="7"]{
+    font-size: 20px;
+    color: Aqua;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="8"]{
+    font-size: 20px;
+    color: Chocolate;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="9"]{
+    font-size: 20px;
+    color: Aquamarine;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="10"]{
+    font-size: 20px;
+    color: blueviolet;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="11"]{
+    font-size: 20px;
+    color: brown;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+[id="12"]{
+    font-size: 20px;
+    color: cadetblue;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
