@@ -11,10 +11,19 @@
 
     <div id="features">
         <div id="buttons">
+            <h2 id="seasonLabel">Season: Spring</h2>
+            <br>
             <button id="popGraph" onclick="drawGraph()">population graph</button>
-
+            <button onclick="spreadVirus()">Spread Virus!</button>
+            
+            <br>
+            <label for="tickSpeed">Change Animation Speed</label>
+            <input type="number" value="3" name = "tickSpeed" id="tickSpeed">            
+            <br>
+            <button id="submit" onclick="updateValues()">Save Changes</button>
+            
             <div id="traitStats">
-                <h1>Species:</h1>
+                <h1>Organisms and their traits:</h1>
                 <ul id="traitList">
 
                 </ul>
@@ -26,6 +35,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="script.js"></script>
+    <script src="newscript.js"></script>
 </body>
 </html>

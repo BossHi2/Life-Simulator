@@ -1,13 +1,22 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  background-color: rgb(88, 88, 88);
+  color: white;
 }
 
 #grid{
+    position: relative;
     display: grid;
     
     gap: 1px;
-    background-color: black;
+    background-color: rgb(88,88,88);
+    width: calc(100vw-52px);
+    height: calc(100vh-52px);
+    left: 26px;
+    top: 26px;
+    background-color: rgb(0, 0, 0);
 }
 
 .cell{
@@ -21,14 +30,49 @@
     background-color: red;
 }
 
+.cellAlive{
+    background-color: blue;
+}
+
+.cellInfected{
+    background-color: green !important;
+}
+
 #features{
     position: relative;
     width: 100vw;
+    color: white;
+    left: 10vw;
+    top: 30px;
 }
 
-#buttons{
-    height: 400px;
-    width: 100vw;
+#tickSpeed{
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+    width: 30px;
+    padding: 2px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+button{
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    background-color: black;
+    border: none;
+    transition: 100ms;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
 
 #traitStats{
@@ -38,61 +82,50 @@
 
 [id="1"]{
     font-size: 20px;
-    color: blue;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="2"]{
     font-size: 20px;
-    color: orange;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="3"]{
     font-size: 20px;
-    color: yellowgreen;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="4"]{
     font-size: 20px;
-    color: violet;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="5"]{
     font-size: 20px;
-    color: green;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="6"]{
     font-size: 20px;
-    color: Chartreuse;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="7"]{
     font-size: 20px;
-    color: Aqua;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="8"]{
     font-size: 20px;
-    color: Chocolate;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="9"]{
     font-size: 20px;
-    color: Aquamarine;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="10"]{
     font-size: 20px;
-    color: blueviolet;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
 [id="11"]{
-    font-size: 20px;
-    color: brown;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+   font-size: 20px;
+    color: rgb(255, 255, 255);
 }
 [id="12"]{
     font-size: 20px;
-    color: cadetblue;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    color: rgb(255, 255, 255);
 }
+
