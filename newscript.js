@@ -27,7 +27,7 @@ var idGenerator = 0
 var organismsGrid = []
 
 var foodSpawnRate = 10
-var tickSpeed = 3
+var tickSpeed = 10
 
 var seasonLength = [80,100,70,60]
 var currSeason = 0
