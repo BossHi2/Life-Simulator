@@ -2,40 +2,40 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: rgb(88, 88, 88);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #grid{
     position: relative;
     display: grid;
     
-    gap: 1px;
-    background-color: rgb(88,88,88);
-    width: calc(100vw-52px);
-    height: calc(100vh-52px);
-    left: 26px;
+    
+    background-color: #211d1d;
+    width: 960px;
+    height: 960px;
+    border: 2px solid black;
+    left: 50%;
+    transform: translate(-50%);
     top: 26px;
-    background-color: rgb(0, 0, 0);
 }
 
 .cell{
     width: 12px;
     height: 12px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 
 .cellFood{
-    background-color: red;
+    background-color: #4C5C2D;
 }
 
 .cellAlive{
-    background-color: blue;
+    background-color: #D96868;
 }
 
 .cellInfected{
-    background-color: green !important;
+    background-color: #aeff00 !important;
 }
 
 #features{
@@ -70,7 +70,7 @@ button{
     transition: 100ms;
 }
 button:hover{
-    background-color: white;
+    background-color: #FBF6F6;
     color: black;
     cursor: pointer;
 }
@@ -82,50 +82,50 @@ button:hover{
 
 [id="1"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="2"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="3"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="4"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="5"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="6"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="7"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="8"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="9"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="10"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="11"]{
    font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 [id="12"]{
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 

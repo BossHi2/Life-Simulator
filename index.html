@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Life Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color: #ead3eb;">
     <dig id="grid"></dig>
 
     <div id="features">
         <div id="buttons">
-            <h2 id="seasonLabel">Season: Spring</h2>
+            <h2 id="seasonLabel" style="display: inline">Season: Spring | </h2>
+            <h2 id="yearsLabel" style="display: inline">Years Survived: 0</h2>
             <h5>Note: it may take a few refreshes to find a population that can survive the winter</h5>
             <br>
             <button id="popGraph" onclick="drawGraph()">population graph</button>
@@ -19,7 +20,7 @@
             
             <br>
             <label for="tickSpeed">Change Animation Speed</label>
-            <input type="number" value="3" name = "tickSpeed" id="tickSpeed">            
+            <input type="number" value="10" name = "tickSpeed" id="tickSpeed">            
             <br>
             <button id="submit" onclick="updateValues()">Save Changes</button>
             

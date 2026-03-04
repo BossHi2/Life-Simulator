@@ -5,10 +5,8 @@ const possibleGenomes = "abcdef0123456789"
 const seasons = ["Spring", "Summer", "Fall", "Winter"]
 
 const grid = document.getElementById("grid")
-var userScreenHeight = window.innerHeight
-var userScreenWidth = window.innerWidth
-const rows = Math.floor((userScreenHeight)/13)-4
-const cols = Math.floor((userScreenWidth)/13)-4
+const rows = 80
+const cols = 80
 
 
 const featureSection = document.getElementById("features")
@@ -32,6 +30,7 @@ var tickSpeed = 10
 var seasonLength = [80,100,70,60]
 var currSeason = 0
 var energyToMove = 1
+var yearsPassed = 0
 
 
 
@@ -129,7 +128,7 @@ class Organism{
 
         if(this.isInfected){
             this.traits[0] = "green"
-
+            this.hunger -= energyToMove * 2
             this.infectOthers()
         }
 
@@ -734,7 +733,7 @@ function drawGraph(){
                 datasets: [{
                     label: "Population",
                     data: graphData,
-                    backgroundColor: 'rgb(255, 255, 255)'
+                    backgroundColor: "white"
                 }]
             },
             options: {
@@ -776,26 +775,36 @@ function drawGraph(){
 
 
 function initiateAction(){
+
     secondsPassed++
     if(secondsPassed % seasonLength[currSeason] == 0){
         currSeason++
-        if(currSeason == 4)
+        if(currSeason == 4){
             currSeason = 0
-        document.getElementById("seasonLabel").innerHTML = "Season: " + seasons[currSeason]
+            yearsPassed++
+            document.getElementById("yearsLabel").innerHTML = "Years Survived: " + yearsPassed
+        }
+            
+        document.getElementById("seasonLabel").innerHTML = "Season: " + seasons[currSeason] + " | "
         if(seasons[currSeason] == "Spring"){
             foodSpawnRate = 10
             energyToMove = 1
+            document.body.style.backgroundColor = "#ead3eb"
         } else if(seasons[currSeason] == "Summer"){
             foodSpawnRate = 5
-            energyToMove = 2
+            energyToMove = 1
+            document.body.style.backgroundColor = "#eee296"
         } else if(seasons[currSeason] == "Fall"){
             foodSpawnRate = 10
             energyToMove = 1
+            document.body.style.backgroundColor = "#dc9072"
         } else if(seasons[currSeason] == "Winter"){
             foodSpawnRate = 0
-            energyToMove = 3
+            energyToMove = 2
+            document.body.style.backgroundColor = "#979ca2"
         }
     }
+    
 
     
 
