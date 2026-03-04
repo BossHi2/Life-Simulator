@@ -128,7 +128,7 @@ class Organism{
 
         if(this.isInfected){
             this.traits[0] = "green"
-            this.hunger -= energyToMove * 2
+            this.hunger -= energyToMove
             this.infectOthers()
         }
 
