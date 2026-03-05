@@ -835,10 +835,10 @@ function initiateAction(){
             document.body.style.backgroundColor = "#ead3eb"
         } else if(seasons[currSeason] == "Summer"){
             foodSpawnRate = 5
-            energyToMove = 1
+            energyToMove = 1.5
             document.body.style.backgroundColor = "#eee296"
         } else if(seasons[currSeason] == "Fall"){
-            foodSpawnRate = 10
+            foodSpawnRate = 15
             energyToMove = 1
             document.body.style.backgroundColor = "#dc9072"
         } else if(seasons[currSeason] == "Winter"){
