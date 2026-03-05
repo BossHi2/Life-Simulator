@@ -51,6 +51,7 @@ class Organism{
 
     geneBinary
     neurons =  new Map()
+    allNeurons = [];
 
     Intervals
     numOfGenes
@@ -100,17 +101,51 @@ class Organism{
             var weightVal = new Int16Array([parseInt(this.geneBinary.substring(i+16, i+32))])[0]/10000
             var tempNeurons = []
 
-            if(parseInt(this.geneBinary.substring(i, i+1)) == 0)
-                tempNeurons[0] = new InputNeuron(inputNeurons[parseInt(this.geneBinary.substring(i+1, i+8), 2)%inputNeurons.length], this, weightVal)
-            else
-                tempNeurons[0] = new InternalNeuron(internalNeurons[parseInt(this.geneBinary.substring(i+1, i+8), 2)%internalNeurons.length])
+            if(parseInt(this.geneBinary.substring(i, i+1)) == 0){
+                var output = this.findNeuron(inputNeurons[parseInt(this.geneBinary.substring(i+1, i+8), 2)%inputNeurons.length])
+                if(output[0] == false){
+                    var x = new InputNeuron(inputNeurons[parseInt(this.geneBinary.substring(i+1, i+8), 2)%inputNeurons.length], this, weightVal)
+                    tempNeurons[0] = x
+                    this.allNeurons.push(x)
+                } else{
+                    tempNeurons[0] = this.allNeurons[output[1]]
+                }
+            }else{
+                var output2 = this.findNeuron(internalNeurons[parseInt(this.geneBinary.substring(i+1, i+8), 2)%internalNeurons.length])
+                if(output2[0] == false){
+                    var x2 = new InternalNeuron(internalNeurons[parseInt(this.geneBinary.substring(i+1, i+8), 2)%internalNeurons.length])
+                    tempNeurons[0] = x2
+                    this.allNeurons.push(x2)
+                } else{
+                    tempNeurons[0] = this.allNeurons[output2[1]]
+                }
+
+            }
 
             if(parseInt(this.geneBinary.substring(i + 8, i+9)) == 0){
-                tempNeurons[1] = new OutputNeuron(outputNeurons[parseInt(this.geneBinary.substring(i+9,i+16), 2)%outputNeurons.length],this)
+                var output3 = this.findNeuron(outputNeurons[parseInt(this.geneBinary.substring(i+9,i+16), 2)%outputNeurons.length])
+                if(output3[0] == false){
+                    var x3 = new OutputNeuron(outputNeurons[parseInt(this.geneBinary.substring(i+9,i+16), 2)%outputNeurons.length],this)
+                    tempNeurons[1] = x3
+                    this.allNeurons.push(x3)
+                } else{
+                    tempNeurons[1] = this.allNeurons[output3[1]]
+                }
+                
             }
                 
-            else
-                tempNeurons[1] = new InternalNeuron(internalNeurons[parseInt(this.geneBinary.substring(i+9,i+16), 2)%internalNeurons.length])
+            else{
+                var output4 = this.findNeuron(internalNeurons[parseInt(this.geneBinary.substring(i+9,i+16), 2)%internalNeurons.length])
+
+                if(output4[0] == false){
+                    var x4 = new InternalNeuron(internalNeurons[parseInt(this.geneBinary.substring(i+9,i+16), 2)%internalNeurons.length])
+                    tempNeurons[1] = x4
+                    this.allNeurons.push(x4)
+                } else{
+                    tempNeurons[1] = this.allNeurons[output4[1]]
+                }
+            }
+                
             
             this.neurons.set(tempNeurons[0], tempNeurons[1])
         }
@@ -120,6 +155,13 @@ class Organism{
 
         
     }
+    findNeuron(n){
+        for(var i = 0; i<this.allNeurons.length; i++){
+            if(this.allNeurons[i].name == n)
+                return [true, i]
+        }
+        return [false, -1]
+    }
 
     doAction(){
         this.age++
@@ -128,7 +170,7 @@ class Organism{
 
         if(this.isInfected){
             this.traits[0] = "green"
-            this.hunger -= energyToMove
+            this.hunger -= energyToMove * 2
             this.infectOthers()
         }
 
@@ -166,27 +208,28 @@ class Organism{
             return true
         }
         for(const[key, value] of this.neurons){
-            value.sum =0
-            if(key instanceof InputNeuron)
-                key.calculateData()
-        }  
+                if(key instanceof InputNeuron)
+                    key.calculateData()
+            }
+            for(const[key, value] of this.neurons){
+                if(key instanceof InputNeuron)
+                    value.sum += key.data * key.connectionWeight
+            }
+            for(const[key, value] of this.neurons){
+                if(key instanceof InternalNeuron)
+                    key.sum = Math.tanh(key.sum)
+                else if(value instanceof InternalNeuron){
+                    value.sum = Math.tanh(value.sum)
+                }
+            }
 
-        for(const[key, value] of this.neurons){
-            if(key instanceof InputNeuron){
-                value.sum += key.data
+            for(const[key, value] of this.neurons){
+                if(value instanceof OutputNeuron && key instanceof InputNeuron){
+                    value.sum += key.data * key.connectionWeight
+                } else if(value instanceof OutputNeuron && key instanceof InternalNeuron){
+                    value.sum += key.sum
+                }
             }
-                
-        } 
-        for(const[key, value] of this.neurons){
-            if(key instanceof InputNeuron){
-                value.sum *= key.connectionWeight
-            }
-        } 
-        for(const[key, value] of this.neurons){
-            if(key instanceof InternalNeuron){
-                value.sum += key.sum
-            }
-        }
         var movement = [0,0]    //[0] = encourage X; [1] = encourageY
         for(const[key, value] of this.neurons){
             if(value instanceof OutputNeuron){
