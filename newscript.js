@@ -530,7 +530,7 @@ class InputNeuron{
         } else if(this.name == "Ly"){
             this.data = this.OrganismRow/rows
         } else if(this.name == "Hun"){
-            this.data = (100-this.Organism.hunger)/100
+            this.data = (15-this.Organism.hunger)/15
         } else if(this.name == "Rnd"){
             this.data = Math.random()
         } else if(this.name == "Pfd"){
