@@ -830,7 +830,7 @@ function initiateAction(){
             
         document.getElementById("seasonLabel").innerHTML = "Season: " + seasons[currSeason] + " | "
         if(seasons[currSeason] == "Spring"){
-            foodSpawnRate = 10
+            foodSpawnRate = 5
             energyToMove = 1
             document.body.style.backgroundColor = "#ead3eb"
         } else if(seasons[currSeason] == "Summer"){
@@ -838,11 +838,11 @@ function initiateAction(){
             energyToMove = 1.25
             document.body.style.backgroundColor = "#eee296"
         } else if(seasons[currSeason] == "Fall"){
-            foodSpawnRate = 15
+            foodSpawnRate = 10
             energyToMove = 1
             document.body.style.backgroundColor = "#dc9072"
         } else if(seasons[currSeason] == "Winter"){
-            foodSpawnRate = 0
+            foodSpawnRate = 1
             energyToMove = 2
             document.body.style.backgroundColor = "#979ca2"
         }

@@ -8,10 +8,10 @@ Although this is an extremely simple simulation, this took a lot of work to crea
 # Facts about the project
 ## Seasons
 There are 4 seasons: Spring, Summer, Fall Winter.
-- Spring: The food spawn rate is set to 10%, and it costs 1 hunger to move (default)
+- Spring: The food spawn rate is set to 5%, and it costs 1 hunger to move (default)
 - Summer: The food spawn rate is 5%
-- Fall: The food spawn rate is back to 10%
-- Winter: The food spawn rate is 0%, and it costs 2 hunger points to move around
+- Fall: The food spawn rate is 10%
+- Winter: The food spawn rate is 1%, and it costs 2 hunger points to move around
 
 ## Reproduction
 Parents pass down DNA to their children. 
