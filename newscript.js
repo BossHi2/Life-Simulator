@@ -24,10 +24,10 @@ var species = {} // speciesName: [aggression (+- .3), exploration (+- .3), popul
 var idGenerator = 0
 var organismsGrid = []
 
-var foodSpawnRate = 10
+var foodSpawnRate = 5
 var tickSpeed = 10
 
-var seasonLength = [80,100,70,60]
+var seasonLength = [160,200,140,120]
 var currSeason = 0
 var energyToMove = 1
 var yearsPassed = 0
